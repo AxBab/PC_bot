@@ -1,33 +1,34 @@
-import speech_recognition as sr  # for listen the microphone
+import speech_recognition as sr  # listen the microphone
 
-from os import system, chdir # for control the system
-from webbrowser import open # for open sites
+from os import system, chdir # control the system
+from webbrowser import open # open sites
 
-from bot_prhases import make_prhase, say # for manipulate a sound
-from invoker_mode import invoker_mode # for auto casting skills
-from clock import timer # for control time
-from action_with_folders import create_folder, remove_folder # for manipulate a folders
-from settings import bot_name, user_name # for have data about programm
+from bot_prhases import make_prhase, say # manipulate a sound
+from invoker_mode import invoker_mode # auto casting skills
+from clock import timer # control time
+from action_with_folders import create_folder, remove_folder # manipulate a folders
+from settings import bot_name, user_name # have data about programm
 
 
 make_prhase(f"Хорошо {user_name}", "yes_master")
 make_prhase("Эй ты че совсем офигел кожаный мешок? Сам ты дурак тупой, хахахахахахахахахахахаха", "daring_answer")
 make_prhase(f"До встречи {user_name}", "goodbye")
 
-r = sr.Recognizer()
-mic = sr.Microphone()
-sr.LANGUAGE = 'ru-RU'
+r = sr.Recognizer() # understand speech
+mic = sr.Microphone() # listen microphone
+sr.LANGUAGE = 'ru-RU' # language for understanding speech
 
 
-while True:
+while True: # start a infinity cycle for listen and execute a commands
     with mic as source:
         print("Скажите что-нибудь...")
 
-        r.adjust_for_ambient_noise(source)
+        r.adjust_for_ambient_noise(source) # reduce a extra noise
         audio = r.listen(source)
 
+    # construction for catch errors and continue a cycly
     try:
-        text = r.recognize_google(audio, language='ru-RU')
+        text = r.recognize_google(audio, language='ru-RU') # translate speech from audio to word
     except:
         continue
 
