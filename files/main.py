@@ -1,13 +1,13 @@
-import speech_recognition as sr
+import speech_recognition as sr  # for listen the microphone
 
-from os import system, chdir
-from webbrowser import open
+from os import system, chdir # for control the system
+from webbrowser import open # for open sites
 
-from bot_prhases import make_prhase, say
-from invoker_mode import invoker_mode
-from clock import timer
-from action_with_folders import create_folder, remove_folder
-from settings import bot_name, user_name
+from bot_prhases import make_prhase, say # for manipulate a sound
+from invoker_mode import invoker_mode # for auto casting skills
+from clock import timer # for control time
+from action_with_folders import create_folder, remove_folder # for manipulate a folders
+from settings import bot_name, user_name # for have data about programm
 
 
 make_prhase(f"Хорошо {user_name}", "yes_master")
